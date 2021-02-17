@@ -1,0 +1,23 @@
+# Startup Rocket.Chat
+
+# Vladimir Mikhalev
+# callvaldemar@gmail.com
+# www.heyvaldemar.com
+
+# Put the unit in the folder /lib/systemd/system/ on your Rocket.Chat server
+
+[Unit]
+Description=The Rocket.Chat server
+After=network.target remote-fs.target nss-lookup.target nginx.target mongod.target
+
+[Service]
+ExecStart=/usr/bin/node /opt/Rocket.Chat/main.js
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=rocketchat
+User=rocketchat
+# Rocket.Chat URL (replace with yours)
+Environment=MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=rs01 MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=rs01 ROOT_URL=https://rocketchat.heyvaldemar.net/ PORT=3000
+
+[Install]
+WantedBy=multi-user.target
