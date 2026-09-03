@@ -1,3 +1,5 @@
+> **Archived.** Rocket.Chat ships as a container now, and a systemd unit for a bare-metal Node install no longer matches how anyone deploys it. I maintain [rocketchat-traefik-letsencrypt-docker-compose](https://github.com/heyvaldemar/rocketchat-traefik-letsencrypt-docker-compose) instead: digest-pinned images, HTTPS through Traefik, and CI that boots the stack and restores a backup on every change. This repository stays readable for reference.
+
 # Startup Rocket.Chat
 
 The unit that helps start Rocket.Chat.
